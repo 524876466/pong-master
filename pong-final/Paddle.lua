@@ -50,6 +50,11 @@ function Paddle:update(dt)
     end
 end
 
+function Paddle:shrink()
+    if self.height > 15 then
+        self.height = self.height - 5
+    end
+end 
 --[[
     To be called by our main function in `love.draw`, ideally. Uses
     LÖVE2D's `rectangle` function, which takes in a draw mode as the first
@@ -59,4 +64,7 @@ end
 ]]
 function Paddle:render()
     love.graphics.rectangle('fill', self.x, self.y, self.width, self.height)
+end
+function Paddle:reset()
+    self.height = 40 
 end
